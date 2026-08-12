@@ -456,6 +456,471 @@ button:hover{
 
     <div class="final">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadiya ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 50% 20%, #24345f 0%, #11182f 35%, #050817 75%, #02030b 100%);
+}
+
+.sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 6px white;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.25; transform:scale(.7)}
+    to{opacity:1; transform:scale(1.4)}
+}
+
+.moon{
+    position:absolute;
+    width:145px;
+    height:145px;
+    right:9%;
+    top:9%;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%, #ffffff 0%, #eeeeee 35%, #cfcfcf 70%, #a9a9a9 100%);
+    box-shadow:
+        0 0 25px rgba(255,255,255,.7),
+        0 0 70px rgba(180,200,255,.3);
+}
+
+.moon::before{
+    content:"";
+    position:absolute;
+    width:27px;
+    height:20px;
+    border-radius:50%;
+    background:rgba(120,120,120,.22);
+    left:28px;
+    top:40px;
+    box-shadow:
+        45px 35px 0 5px rgba(120,120,120,.16),
+        65px -15px 0 2px rgba(120,120,120,.18),
+        20px 70px 0 4px rgba(120,120,120,.15);
+}
+
+.hills{
+    position:absolute;
+    bottom:-100px;
+    left:-10%;
+    width:120%;
+    height:230px;
+    background:#03040b;
+    border-radius:50% 50% 0 0;
+    box-shadow:0 -20px 70px rgba(0,0,0,.7);
+}
+
+.screen{
+    min-height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    text-align:center;
+}
+
+.screen.active{
+    display:flex;
+}
+
+.card{
+    width:100%;
+    max-width:520px;
+    padding:35px 25px;
+    border-radius:28px;
+    background:rgba(8,12,30,.72);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.65),
+        inset 0 0 30px rgba(255,255,255,.025);
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+h2{
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.65;
+    margin-bottom:23px;
+    color:#eeeeee;
+}
+
+button{
+    border:1px solid rgba(255,255,255,.18);
+    padding:14px 24px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    background:rgba(255,255,255,.1);
+    color:white;
+    font-weight:bold;
+    margin:7px;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:rgba(255,255,255,.18);
+}
+
+.main-btn{
+    background:linear-gradient(135deg,#ff4f91,#9d5cff);
+    border:none;
+    box-shadow:0 8px 25px rgba(255,70,140,.25);
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+}
+
+.option:hover{
+    border-color:#ff70a7;
+}
+
+.music{
+    position:fixed;
+    top:18px;
+    left:18px;
+    z-index:20;
+    width:48px;
+    height:48px;
+    padding:0;
+    border-radius:50%;
+    background:rgba(10,15,35,.8);
+}
+
+.cake{
+    font-size:85px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-10px)}
+}
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    font-size:22px;
+    pointer-events:none;
+    z-index:50;
+    animation:heartFloat 5s linear forwards;
+}
+
+@keyframes heartFloat{
+    0%{
+        transform:translateY(0) scale(.7);
+        opacity:0;
+    }
+    15%{opacity:1}
+    100%{
+        transform:translateY(-110vh) scale(1.5) rotate(25deg);
+        opacity:0;
+    }
+}
+
+.final{
+    background:rgba(255,255,255,.045);
+    border-radius:20px;
+    padding:20px;
+    margin-top:15px;
+}
+
+.small{
+    font-size:13px;
+    opacity:.65;
+}
+
+.signature{
+    margin-top:25px;
+    font-size:20px;
+    color:#ffb1ce;
+}
+
+.secret-heart{
+    font-size:75px;
+    animation:secretBeat 1.3s infinite;
+}
+
+@keyframes secretBeat{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.18);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NIGHT SKY -->
+<div class="sky" id="sky">
+    <div class="moon"></div>
+    <div class="hills"></div>
+</div>
+
+<!-- MUSIC BUTTON -->
+<button class="music" onclick="toggleMusic()" id="musicBtn">🎵</button>
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen1">
+<div class="card">
+
+    <div style="font-size:65px;">🌙</div>
+
+    <h1>Sadiya ❤️</h1>
+
+    <p>
+        Maine tumhare liye kuch banaya hai...
+        <br>
+        Thoda sa pagalpan,
+        thoda sa pyaar,
+        aur bahut saari feelings. 🥰
+    </p>
+
+    <button class="main-btn" onclick="nextScreen(2)">
+        Surprise kholo 🎁
+    </button>
+
+    <p class="small">
+        Ek chhoti si duniya... sirf tumhare liye ✨
+    </p>
+
+</div>
+</section>
+
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
+<div class="card">
+
+    <div class="cake">🎂</div>
+
+    <h1>Happy Birthday</h1>
+
+    <h2>Sadiya ❤️</h2>
+
+    <p>
+        Aaj ka din mere liye bhi special hai,
+        kyunki aaj ke din meri favourite person
+        duniya mein aayi thi. 🥰
+    </p>
+
+    <button class="main-btn" onclick="nextScreen(3)">
+        Aage dekho ❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- QUESTION 1 -->
+<section class="screen" id="screen3">
+<div class="card">
+
+    <h2>Sawaal 1 ❤️</h2>
+
+    <p>
+        Agar hum abhi saath hote,
+        to sabse pehle kya karte?
+    </p>
+
+    <button class="option" onclick="nextScreen(4)">
+        A) Long walk par jaate 🌙
+    </button>
+
+    <button class="option" onclick="nextScreen(4)">
+        B) Saath mein kuch tasty khate 🍕
+    </button>
+
+    <button class="option" onclick="nextScreen(4)">
+        C) Bahut saari baatein karte 💬
+    </button>
+
+    <button class="option" onclick="nextScreen(4)">
+        D) Bas ek dusre ko dekhte rehte ❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- QUESTION 2 -->
+<section class="screen" id="screen4">
+<div class="card">
+
+    <h2>Sawaal 2 💕</h2>
+
+    <p>
+        Tumhare hisaab se pyaar ko
+        sabse zyada khaas kya banata hai?
+    </p>
+
+    <button class="option" onclick="nextScreen(5)">
+        A) Woh feeling jo dil ko sukoon de ❤️
+    </button>
+
+    <button class="option" onclick="nextScreen(5)">
+        B) Woh baatein jo hamesha yaad rahein ✨
+    </button>
+
+    <button class="option" onclick="nextScreen(5)">
+        C) Woh care jo sirf tumhari ho 🥰
+    </button>
+
+    <button class="option" onclick="nextScreen(5)">
+        D) Woh bharosa jo kabhi na toote 🔐
+    </button>
+
+</div>
+</section>
+
+
+<!-- QUESTION 3 -->
+<section class="screen" id="screen5">
+<div class="card">
+
+    <h2>Sawaal 3 😏</h2>
+
+    <p>
+        Agar main achanak tumhare saamne aa jaun,
+        to tumhara first reaction kya hoga?
+    </p>
+
+    <button class="option" onclick="nextScreen(6)">
+        A) Shock 😳
+    </button>
+
+    <button class="option" onclick="nextScreen(6)">
+        B) Seedha hug 🫂
+    </button>
+
+    <button class="option" onclick="nextScreen(6)">
+        C) Khushi se smile 😊
+    </button>
+
+    <button class="option" onclick="nextScreen(6)">
+        D) Pehle daantungi, phir hug 😂❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- QUESTION 4 -->
+<section class="screen" id="screen6">
+<div class="card">
+
+    <h2>Sawaal 4 🌙</h2>
+
+    <p>
+        Agar tumhe mere saath ek perfect evening
+        choose karni ho, to kya choose karogi?
+    </p>
+
+    <button class="option" onclick="nextScreen(7)">
+        A) Stars dekhte hue baatein ✨
+    </button>
+
+    <button class="option" onclick="nextScreen(7)">
+        B) Saath mein music sunna 🎵
+    </button>
+
+    <button class="option" onclick="nextScreen(7)">
+        C) Chup-chaap paas baithna ❤️
+    </button>
+
+    <button class="option" onclick="nextScreen(7)">
+        D) Thodi si pagalpan wali masti 😂
+    </button>
+
+</div>
+</section>
+
+
+<!-- FINAL QUESTION -->
+<section class="screen" id="screen7">
+<div class="card">
+
+    <div style="font-size:55px;">💖</div>
+
+    <h2>Last Sawaal...</h2>
+
+    <p>
+        Sadiya, kya tum mere saath
+        ek aur birthday celebrate karna chahogi? ❤️
+    </p>
+
+    <button class="main-btn" onclick="nextScreen(8)">
+        Haan ❤️
+    </button>
+
+    <button onclick="nextScreen(8)">
+        Bilkul ❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- FINAL BIRTHDAY SCREEN -->
+<section class="screen" id="screen8">
+<div class="card">
+
+    <div style="font-size:70px;">🌙❤️</div>
+
+    <h1>Happy Birthday Sadiya 🎂</h1>
+
+    <div class="final">
+
         <p>
             Kaash aaj main tumhare paas hota...
         </p>
@@ -503,8 +968,69 @@ button:hover{
 
     <br>
 
-    <button class="main-btn" onclick="hearts()">
+    <!-- FIXED: THIS NOW OPENS SCREEN 9 -->
+    <button class="main-btn" onclick="nextScreen(9)">
         Ek aur surprise ❤️
+    </button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 9 - SECRET SURPRISE -->
+<section class="screen" id="screen9">
+<div class="card">
+
+    <div class="secret-heart">💖</div>
+
+    <h1>Sadiya...</h1>
+
+    <p>
+        Agar tum yahan tak aa gayi ho,
+        to ek baat aur kehni thi... ❤️
+    </p>
+
+    <p>
+        Tum meri life ka woh hissa ho
+        jise main kisi ek birthday,
+        kisi ek din ya kisi ek message
+        mein explain nahi kar sakta.
+    </p>
+
+    <p>
+        Bas itna samajh lena...
+        <br>
+        <strong>
+        tum mere liye bahut special ho. ❤️
+        </strong>
+    </p>
+
+    <div class="final">
+
+        <p>
+            🌙 Jab bhi raat mein moon dekho,
+            ek baar mujhe yaad kar lena...
+        </p>
+
+        <p>
+            Kyunki shayad usi waqt
+            main bhi wahi moon dekh raha hounga. ✨
+        </p>
+
+    </div>
+
+    <br>
+
+    <h2>
+        I love you, Sadiya ❤️
+    </h2>
+
+    <p class="small">
+        This little surprise was made only for you. 🌙
+    </p>
+
+    <button class="main-btn" onclick="hearts()">
+        ❤️
     </button>
 
 </div>
@@ -613,10 +1139,10 @@ function toggleMusic(){
 }
 
 
-/* AUTOMATIC HEARTS ON FINAL SCREEN */
+/* FINAL SCREEN HEARTS */
 setInterval(function(){
 
-    if(currentScreen === 8){
+    if(currentScreen === 8 || currentScreen === 9){
         hearts();
     }
 
@@ -625,799 +1151,4 @@ setInterval(function(){
 </script>
 
 </body>
-</html>
-/* STARS */
-
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:white;
-
-    box-shadow:
-        0 0 5px white,
-        0 0 10px rgba(255,255,255,.7);
-
-    animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
-    from{
-        opacity:.25;
-        transform:scale(.7);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.5);
-    }
-}
-
-/* SHOOTING STAR */
-
-.shooting-star{
-    position:absolute;
-    width:120px;
-    height:2px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        white
-    );
-
-    transform:rotate(-35deg);
-    opacity:0;
-
-    animation:shoot 7s linear infinite;
-}
-
-@keyframes shoot{
-
-    0%{
-        left:80%;
-        top:5%;
-        opacity:0;
-    }
-
-    5%{
-        opacity:1;
-    }
-
-    15%{
-        left:45%;
-        top:30%;
-        opacity:0;
-    }
-
-    100%{
-        opacity:0;
-    }
-}
-
-/* SCREEN */
-
-.screen{
-    width:100%;
-    height:100vh;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:25px;
-
-    text-align:center;
-
-    overflow-y:auto;
-}
-
-.screen.active{
-    display:flex;
-}
-
-/* CARD */
-
-.card{
-    width:100%;
-    max-width:520px;
-
-    padding:35px 25px;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(255,255,255,.035)
-        );
-
-    border:1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.6),
-        inset 0 0 30px rgba(255,255,255,.025);
-}
-
-/* TEXT */
-
-h1{
-    font-size:42px;
-    margin-bottom:18px;
-
-    text-shadow:
-        0 0 20px rgba(255,160,200,.6);
-}
-
-h2{
-    font-size:29px;
-    margin-bottom:20px;
-}
-
-p{
-    font-size:18px;
-    line-height:1.75;
-    margin-bottom:22px;
-}
-
-/* BUTTON */
-
-button{
-    border:1px solid rgba(255,255,255,.25);
-
-    padding:14px 26px;
-
-    border-radius:30px;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,80,140,.9),
-            rgba(120,70,255,.85)
-        );
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.35);
-
-    margin:8px;
-
-    transition:.3s;
-}
-
-button:hover{
-    transform:translateY(-3px) scale(1.03);
-
-    box-shadow:
-        0 12px 35px rgba(255,80,150,.35);
-}
-
-/* OPTION BUTTON */
-
-.option{
-    display:block;
-    width:100%;
-
-    background:
-        rgba(255,255,255,.07);
-
-    text-align:left;
-}
-
-.option:hover{
-    background:
-        rgba(255,255,255,.15);
-}
-
-/* HEARTS */
-
-.heart{
-    position:fixed;
-
-    bottom:-40px;
-
-    font-size:22px;
-
-    pointer-events:none;
-
-    animation:heartFloat 6s linear forwards;
-
-    z-index:20;
-}
-
-@keyframes heartFloat{
-
-    0%{
-        transform:
-            translateY(0)
-            rotate(0deg)
-            scale(.8);
-
-        opacity:0;
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translateY(-110vh)
-            rotate(360deg)
-            scale(1.4);
-
-        opacity:0;
-    }
-}
-
-/* GLOW HEART */
-
-.big-heart{
-    font-size:75px;
-
-    animation:
-        heartbeat 1.4s infinite;
-
-    filter:
-        drop-shadow(0 0 25px rgba(255,60,120,.8));
-}
-
-@keyframes heartbeat{
-
-    50%{
-        transform:scale(1.12);
-    }
-}
-
-/* CAKE */
-
-.cake{
-    font-size:85px;
-
-    animation:
-        cakeBounce 1.5s infinite;
-}
-
-@keyframes cakeBounce{
-
-    50%{
-        transform:translateY(-10px);
-    }
-}
-
-/* FINAL MESSAGE */
-
-.final-message{
-
-    padding:22px;
-
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.1);
-}
-
-.small{
-    font-size:14px;
-    opacity:.7;
-}
-
-.music-note{
-    font-size:13px;
-    opacity:.65;
-    margin-top:10px;
-}
-
-/* MOBILE */
-
-@media(max-width:500px){
-
-    h1{
-        font-size:34px;
-    }
-
-    h2{
-        font-size:25px;
-    }
-
-    p{
-        font-size:17px;
-    }
-
-    .moon{
-        width:95px;
-        height:95px;
-        right:8%;
-        top:7%;
-    }
-
-}
-</style>
-</head>
-
-
-<body>
-
-<!-- NIGHT SKY -->
-
-<div class="sky">
-
-    <div class="moon">
-        <div class="crater c1"></div>
-        <div class="crater c2"></div>
-        <div class="crater c3"></div>
-        <div class="crater c4"></div>
-    </div>
-
-    <div class="shooting-star"></div>
-
-</div>
-
-
-<!-- =========================
-     SCREEN 1
-========================= -->
-
-<section class="screen active" id="screen1">
-
-<div class="card">
-
-    <div style="font-size:60px;">✨</div>
-
-    <h1>Sadiya ❤️</h1>
-
-    <p>
-        Maine tumhare liye kuch banaya hai...
-    </p>
-
-    <p>
-        Shayad ye duniya ka sabse bada gift nahi hai,
-        lekin isme meri bahut saari feelings hain. ❤️
-    </p>
-
-    <button onclick="startSurprise()">
-        Dil se kholo ❤️
-    </button>
-
-    <p class="small">
-        Ek chhota sa surprise tumhare liye...
-    </p>
-
-    <p class="music-note">
-        🎵 Music ke liye button dabane ke baad sound start hoga
-    </p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     SCREEN 2
-========================= -->
-
-<section class="screen" id="screen2">
-
-<div class="card">
-
-    <div class="cake">🎂</div>
-
-    <h1>Happy Birthday</h1>
-
-    <h2>Sadiya ❤️</h2>
-
-    <p>
-        Aaj ka din thoda aur khoobsurat hai...
-        kyunki aaj tumhara birthday hai. ✨
-    </p>
-
-    <p>
-        Lekin asli surprise abhi baaki hai. 😌
-    </p>
-
-    <button onclick="nextScreen(3)">
-        Chalo shuru karein 💕
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     QUESTION 1
-========================= -->
-
-<section class="screen" id="screen3">
-
-<div class="card">
-
-    <h2>Ek sawaal ❤️</h2>
-
-    <p>
-        Agar hum dono ko ek poora din sirf saath mil jaaye,
-        tum kya choose karogi?
-    </p>
-
-    <button class="option" onclick="nextScreen(4)">
-        A) Saath mein ghoomna 🌙
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        B) Saath mein khana 🍕
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        C) Puri raat baatein karna 💬
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        D) Bas tumhare saath rehna ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     QUESTION 2
-========================= -->
-
-<section class="screen" id="screen4">
-
-<div class="card">
-
-    <h2>Thoda dil se jawab dena 💕</h2>
-
-    <p>
-        Pyaar mein sabse khoobsurat cheez kya hoti hai?
-    </p>
-
-    <button class="option" onclick="nextScreen(5)">
-        A) Kisi ka tumhe samajhna 🥹
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        B) Kisi ka bina wajah tumhe yaad karna ❤️
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        C) Kisi ke saath apna future sochna ✨
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        D) Jab kisi ek insaan mein apni poori duniya dikhne lage ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     QUESTION 3
-========================= -->
-
-<section class="screen" id="screen5">
-
-<div class="card">
-
-    <h2>Ek aur sawaal 😌</h2>
-
-    <p>
-        Agar main abhi tumhare saamne hota,
-        to tum sabse pehle kya karti?
-    </p>
-
-    <button class="option" onclick="nextScreen(6)">
-        A) Smile 😊
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        B) Mujhe dekhti rehti ❤️
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        C) Hug 🫂
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        D) Pehle daant-ti, phir hug 😂❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     QUESTION 4
-========================= -->
-
-<section class="screen" id="screen6">
-
-<div class="card">
-
-    <h2>Sabse important sawaal ❤️</h2>
-
-    <p>
-        Agar tumhe apni zindagi mein ek aisa insaan mile
-        jo tumhe bina kisi wajah ke hamesha khush dekhna chahe,
-        to tum uske liye kya karogi?
-    </p>
-
-    <button class="option" onclick="nextScreen(7)">
-        A) Uski kadar karungi ❤️
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        B) Uska saath dungi 🫂
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        C) Usse kabhi akela feel nahi hone dungi 💕
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        D) Usse apni zindagi ka special part bana lungi ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FINAL QUESTION
-========================= -->
-
-<section class="screen" id="screen7">
-
-<div class="card">
-
-    <div class="big-heart">❤️</div>
-
-    <h2>Last Question...</h2>
-
-    <p>
-        Sadiya...
-        kya tum mere saath aise hi aur birthdays
-        celebrate karna chahogi? 🥹❤️
-    </p>
-
-    <button onclick="nextScreen(8)">
-        Haan ❤️
-    </button>
-
-    <button onclick="nextScreen(8)">
-        Bahut saare ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FINAL SURPRISE
-========================= -->
-
-<section class="screen" id="screen8">
-
-<div class="card">
-
-    <div class="big-heart">❤️</div>
-
-    <h1>Happy Birthday Sadiya</h1>
-
-    <div class="final-message">
-
-        <p>
-            Aaj main tumhe koi mehenga gift nahi de paaya...
-        </p>
-
-        <p>
-            Lekin dil se ek cheez zaroor dena chahta hoon—
-            meri feelings ka ek chhota sa hissa. ❤️
-        </p>
-
-        <p>
-            Tum meri zindagi ka woh hissa ho
-            jise main kisi gift, kisi photo
-            ya kisi ek din mein explain nahi kar sakta.
-        </p>
-
-        <p>
-            Bas itna chahta hoon ki tum hamesha khush raho,
-            hamesha smile karo...
-            aur jab kabhi ye website dobara kholo,
-            to tumhe yaad aaye ki kisi ne
-            tumhare liye dil se ye banaya tha. 🥹❤️
-        </p>
-
-        <p>
-            <strong>
-                Tum mere liye bahut special ho. ❤️
-            </strong>
-        </p>
-
-        <p>
-            Happy Birthday meri Sadiya 🎂❤️
-        </p>
-
-    </div>
-
-    <button onclick="createHearts(40)">
-        ❤️ Ek aakhri surprise
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     MUSIC
-========================= -->
-
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-
-<script>
-
-/* =========================
-   CREATE STARS
-========================= */
-
-const sky = document.querySelector(".sky");
-
-for(let i=0;i<180;i++){
-
-    const star=document.createElement("div");
-
-    star.className="star";
-
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
-
-    const size=(Math.random()*2)+1;
-
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-
-    star.style.animationDelay=
-        Math.random()*3+"s";
-
-    sky.appendChild(star);
-}
-
-
-/* =========================
-   START SURPRISE
-========================= */
-
-function startSurprise(){
-
-    const music=document.getElementById("music");
-
-    music.play().catch(()=>{});
-
-    createHearts(15);
-
-    nextScreen(2);
-}
-
-
-/* =========================
-   NEXT SCREEN
-========================= */
-
-function nextScreen(number){
-
-    document
-    .querySelectorAll(".screen")
-    .forEach(function(screen){
-
-        screen.classList.remove("active");
-
-    });
-
-    const target=document.getElementById(
-        "screen"+number
-    );
-
-    if(target){
-
-        target.classList.add("active");
-
-    }
-
-    createHearts(10);
-}
-
-
-/* =========================
-   HEART ANIMATION
-========================= */
-
-function createHearts(amount=15){
-
-    for(let i=0;i<amount;i++){
-
-        const heart=document.createElement("div");
-
-        heart.className="heart";
-
-        const emojis=[
-            "❤️",
-            "💕",
-            "💖",
-            "💗",
-            "💓",
-            "💘",
-            "✨"
-        ];
-
-        heart.innerHTML=
-            emojis[
-                Math.floor(
-                    Math.random()*emojis.length
-                )
-            ];
-
-        heart.style.left=
-            Math.random()*100+"vw";
-
-        heart.style.animationDuration=
-            (4+Math.random()*4)+"s";
-
-        heart.style.fontSize=
-            (15+Math.random()*20)+"px";
-
-        document.body.appendChild(heart);
-
-        setTimeout(function(){
-
-            heart.remove();
-
-        },8000);
-    }
-}
-
-
-/* =========================
-   FINAL HEARTS
-========================= */
-
-setInterval(function(){
-
-    const finalScreen=
-        document.getElementById("screen8");
-
-    if(finalScreen.classList.contains("active")){
-
-        createHearts(6);
-
-    }
-
-},2500);
-
-</script>
-
-</body>
-</html>
+        </html>
