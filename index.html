@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sadiya ❤️</title>
+<meta name="description" content="Sadiya ke liye ek special birthday surprise ❤️">
+<meta name="robots" content="index, follow">
 
 <style>
 *{
@@ -18,7 +21,7 @@ body{
     font-family:Arial,sans-serif;
     color:white;
     background:
-        radial-gradient(circle at 50% 20%, #24345f 0%, #11182f 35%, #050817 75%, #02030b 100%);
+        radial-gradient(circle at 50% 20%,#182442 0%,#0b1025 38%,#030615 75%,#010208 100%);
 }
 
 /* ================= LOCK SCREEN ================= */
@@ -31,8 +34,9 @@ body{
     justify-content:center;
     align-items:center;
     padding:25px;
+
     background:
-        radial-gradient(circle at 50% 20%, #24345f 0%, #11182f 35%, #050817 75%, #02030b 100%);
+        radial-gradient(circle at 50% 18%,#182442 0%,#0b1025 38%,#030615 75%,#010208 100%);
 }
 
 .lockBox{
@@ -41,10 +45,16 @@ body{
     padding:35px 25px;
     text-align:center;
     border-radius:28px;
-    background:rgba(8,12,30,.82);
+
+    background:rgba(5,8,22,.82);
+
     border:1px solid rgba(255,255,255,.15);
+
     backdrop-filter:blur(15px);
-    box-shadow:0 20px 70px rgba(0,0,0,.7);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.8),
+        0 0 50px rgba(120,150,255,.08);
 }
 
 .lockIcon{
@@ -68,12 +78,19 @@ body{
     width:100%;
     padding:15px;
     margin:8px 0 12px;
+
     border-radius:25px;
+
     border:1px solid rgba(255,255,255,.2);
+
     background:rgba(255,255,255,.08);
+
     color:white;
+
     outline:none;
+
     text-align:center;
+
     font-size:16px;
 }
 
@@ -88,6 +105,7 @@ body{
     margin-top:10px;
 }
 
+
 /* ================= NIGHT SKY ================= */
 
 .sky{
@@ -97,88 +115,234 @@ body{
     z-index:-2;
 }
 
+/* Moving stars */
+
 .star{
     position:absolute;
+
     width:2px;
     height:2px;
+
     background:white;
+
     border-radius:50%;
-    box-shadow:0 0 6px white;
-    animation:twinkle 3s infinite alternate;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px rgba(180,210,255,.7);
+
+    animation:
+        starMove linear infinite,
+        twinkle ease-in-out infinite alternate;
+}
+
+@keyframes starMove{
+
+    0%{
+        transform:translate3d(0,0,0);
+    }
+
+    50%{
+        transform:translate3d(18px,-12px,0);
+    }
+
+    100%{
+        transform:translate3d(-10px,15px,0);
+    }
 }
 
 @keyframes twinkle{
+
     from{
         opacity:.25;
-        transform:scale(.7);
+        transform:scale(.65);
     }
+
     to{
         opacity:1;
-        transform:scale(1.4);
+        transform:scale(1.5);
     }
 }
 
-/* ================= MOON ================= */
+
+/* ================= REALISTIC DARK MOON ================= */
 
 .moon{
     position:absolute;
-    width:145px;
-    height:145px;
-    right:9%;
-    top:9%;
+
+    width:155px;
+    height:155px;
+
+    right:8%;
+    top:8%;
+
     border-radius:50%;
+
     background:
         radial-gradient(
-            circle at 35% 30%,
+            circle at 32% 27%,
             #ffffff 0%,
-            #eeeeee 35%,
-            #cfcfcf 70%,
-            #a9a9a9 100%
+            #e8e9ec 30%,
+            #c5c7cc 65%,
+            #8c9099 100%
         );
 
     box-shadow:
-        0 0 25px rgba(255,255,255,.7),
-        0 0 70px rgba(180,200,255,.3);
+        0 0 25px rgba(255,255,255,.65),
+        0 0 60px rgba(160,180,255,.28),
+        0 0 120px rgba(100,130,255,.12);
+
+    overflow:hidden;
 }
+
+/* Moon craters */
 
 .moon::before{
     content:"";
+
     position:absolute;
-    width:27px;
-    height:20px;
+
+    width:30px;
+    height:23px;
+
     border-radius:50%;
-    background:rgba(120,120,120,.22);
-    left:28px;
-    top:40px;
+
+    background:rgba(80,80,85,.23);
+
+    left:27px;
+    top:42px;
 
     box-shadow:
-        45px 35px 0 5px rgba(120,120,120,.16),
-        65px -15px 0 2px rgba(120,120,120,.18),
-        20px 70px 0 4px rgba(120,120,120,.15);
+        48px 30px 0 5px rgba(80,80,85,.16),
+        68px -18px 0 3px rgba(80,80,85,.20),
+        22px 75px 0 5px rgba(80,80,85,.15),
+        90px 62px 0 3px rgba(80,80,85,.13);
 }
+
+/* Dark shadow over moon */
+
+.moon::after{
+    content:"";
+
+    position:absolute;
+
+    width:155px;
+    height:155px;
+
+    border-radius:50%;
+
+    left:30px;
+    top:-8px;
+
+    background:#050817;
+
+    opacity:.82;
+}
+
+
+/* ================= MOVING BUTTERFLIES ================= */
+
+.butterfly{
+    position:fixed;
+
+    left:-80px;
+
+    font-size:27px;
+
+    z-index:4;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(0 0 6px rgba(255,160,210,.55));
+
+    animation:
+        butterflyFly linear forwards;
+}
+
+@keyframes butterflyFly{
+
+    0%{
+        transform:
+            translate(-80px,0)
+            rotate(8deg)
+            scale(.75);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    25%{
+        transform:
+            translate(25vw,-45px)
+            rotate(-12deg)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(50vw,55px)
+            rotate(12deg)
+            scale(.95);
+    }
+
+    75%{
+        transform:
+            translate(75vw,-35px)
+            rotate(-10deg)
+            scale(1.05);
+    }
+
+    100%{
+        transform:
+            translate(110vw,25px)
+            rotate(10deg)
+            scale(.8);
+
+        opacity:0;
+    }
+}
+
 
 /* ================= HILLS ================= */
 
 .hills{
     position:absolute;
+
     bottom:-100px;
     left:-10%;
+
     width:120%;
     height:230px;
-    background:#03040b;
+
+    background:#02030a;
+
     border-radius:50% 50% 0 0;
-    box-shadow:0 -20px 70px rgba(0,0,0,.7);
+
+    box-shadow:
+        0 -20px 70px rgba(0,0,0,.7);
 }
+
 
 /* ================= SCREENS ================= */
 
 .screen{
     min-height:100vh;
+
     display:none;
+
     justify-content:center;
     align-items:center;
+
     padding:25px;
+
     text-align:center;
+
+    position:relative;
+    z-index:2;
 }
 
 .screen.active{
@@ -188,8 +352,11 @@ body{
 .card{
     width:100%;
     max-width:520px;
+
     max-height:90vh;
+
     overflow-y:auto;
+
     padding:35px 25px;
 
     border-radius:28px;
@@ -217,10 +384,14 @@ h2{
 
 p{
     font-size:18px;
+
     line-height:1.65;
+
     margin-bottom:23px;
+
     color:#eeeeee;
 }
+
 
 /* ================= BUTTON ================= */
 
@@ -248,6 +419,7 @@ button{
 
 button:hover{
     transform:scale(1.05);
+
     background:rgba(255,255,255,.18);
 }
 
@@ -267,7 +439,9 @@ button:hover{
 
 .option{
     display:block;
+
     width:100%;
+
     text-align:left;
 }
 
@@ -275,10 +449,12 @@ button:hover{
     border-color:#ff70a7;
 }
 
+
 /* ================= MUSIC ================= */
 
 .music{
     position:fixed;
+
     top:18px;
     left:18px;
 
@@ -294,18 +470,23 @@ button:hover{
     background:rgba(10,15,35,.8);
 }
 
+
 /* ================= CAKE ================= */
 
 .cake{
     font-size:85px;
-    animation:bounce 1.5s infinite;
+
+    animation:
+        bounce 1.5s infinite;
 }
 
 @keyframes bounce{
+
     50%{
         transform:translateY(-10px);
     }
 }
+
 
 /* ================= HEARTS ================= */
 
@@ -348,6 +529,7 @@ button:hover{
     }
 }
 
+
 /* ================= FINAL ================= */
 
 .final{
@@ -362,6 +544,7 @@ button:hover{
 
 .small{
     font-size:13px;
+
     opacity:.65;
 }
 
@@ -390,6 +573,42 @@ button:hover{
         transform:scale(1.18);
     }
 }
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .moon{
+        width:115px;
+        height:115px;
+
+        right:5%;
+        top:6%;
+    }
+
+    .moon::after{
+        width:115px;
+        height:115px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    .card{
+        padding:28px 20px;
+    }
+}
+
 </style>
 </head>
 
@@ -953,20 +1172,25 @@ button:hover{
 function unlock(){
 
     const password =
-        document.getElementById("password").value;
+        document.getElementById("password").value.trim();
 
     if(password === "Sadiya15"){
 
-        document.getElementById("lockScreen")
-            .style.display = "none";
+        document.getElementById("lockScreen").style.display = "none";
 
         hearts();
 
+        /* Music browser automatically start nahi karne deta,
+           isliye user music button se start kar sakta hai. */
+
     }else{
 
-        document.getElementById("error")
-            .innerText =
+        document.getElementById("error").innerText =
             "Password galat hai 😜❤️";
+
+        document.getElementById("password").value = "";
+
+        document.getElementById("password").focus();
 
     }
 }
@@ -977,7 +1201,7 @@ function unlock(){
 const sky =
     document.getElementById("sky");
 
-for(let i=0;i<130;i++){
+for(let i=0;i<150;i++){
 
     const star =
         document.createElement("div");
@@ -988,10 +1212,10 @@ for(let i=0;i<130;i++){
         Math.random()*100 + "%";
 
     star.style.top =
-        Math.random()*75 + "%";
+        Math.random()*78 + "%";
 
     const size =
-        Math.random()*2 + 1;
+        Math.random()*2.2 + 1;
 
     star.style.width =
         size + "px";
@@ -999,11 +1223,76 @@ for(let i=0;i<130;i++){
     star.style.height =
         size + "px";
 
+    star.style.animationDuration =
+        (5 + Math.random()*8) + "s, " +
+        (2 + Math.random()*3) + "s";
+
     star.style.animationDelay =
-        Math.random()*4 + "s";
+        (-Math.random()*8) + "s, " +
+        (-Math.random()*3) + "s";
 
     sky.appendChild(star);
 }
+
+
+/* ================= BUTTERFLIES ================= */
+
+const butterflyIcons = [
+    "🦋",
+    "🦋",
+    "🦋"
+];
+
+function createButterfly(){
+
+    const butterfly =
+        document.createElement("div");
+
+    butterfly.className =
+        "butterfly";
+
+    butterfly.innerHTML =
+        butterflyIcons[
+            Math.floor(
+                Math.random()*butterflyIcons.length
+            )
+        ];
+
+    butterfly.style.top =
+        (15 + Math.random()*65) + "vh";
+
+    butterfly.style.fontSize =
+        (20 + Math.random()*15) + "px";
+
+    butterfly.style.animationDuration =
+        (10 + Math.random()*8) + "s";
+
+    document.body.appendChild(butterfly);
+
+    setTimeout(function(){
+
+        butterfly.remove();
+
+    },19000);
+}
+
+/* Pehli butterflies */
+
+for(let i=0;i<4;i++){
+
+    setTimeout(
+        createButterfly,
+        i*2200
+    );
+
+}
+
+/* Continuous butterflies */
+
+setInterval(
+    createButterfly,
+    6500
+);
 
 
 /* ================= SCREEN CHANGE ================= */
@@ -1020,13 +1309,20 @@ function nextScreen(number){
 
         });
 
-    document
-        .getElementById("screen"+number)
-        .classList.add("active");
+    const next =
+        document.getElementById(
+            "screen"+number
+        );
 
-    currentScreen = number;
+    if(next){
 
-    hearts();
+        next.classList.add("active");
+
+        currentScreen =
+            number;
+
+        hearts();
+    }
 }
 
 
@@ -1039,665 +1335,4 @@ function hearts(){
         const heart =
             document.createElement("div");
 
-        heart.className = "heart";
-
-        const emojis = [
-            "❤️",
-            "💕",
-            "💖",
-            "💗",
-            "💓",
-            "💘"
-        ];
-
-        heart.innerHTML =
-            emojis[
-                Math.floor(
-                    Math.random()*emojis.length
-                )
-            ];
-
-        heart.style.left =
-            Math.random()*100 + "vw";
-
-        heart.style.animationDuration =
-            (3 + Math.random()*3) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(function(){
-
-            heart.remove();
-
-        },6000);
-    }
-}
-
-
-/* ================= MUSIC ================= */
-
-const music =
-    document.getElementById("music");
-
-const musicBtn =
-    document.getElementById("musicBtn");
-
-function toggleMusic(){
-
-    if(music.paused){
-
-        music.play()
-        .then(function(){
-
-            musicBtn.innerHTML = "🔊";
-
-        })
-        .catch(function(){
-
-            alert(
-                "Pehle music.mp3 file GitHub mein upload karo 🎵"
-            );
-
-        });
-
-    }else{
-
-        music.pause();
-
-        musicBtn.innerHTML = "🎵";
-
-    }
-}
-
-
-/* =========
-setInterval(function(){
-
-    if(
-        currentScreen === 8 ||
-        currentScreen === 9
-    ){
-
-        hearts();
-
-    }
-
-},3500);
-
-</script>
-
-</body>
-</htm    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter:blur(15px);
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.65),
-        inset 0 0 30px rgba(255,255,255,.025);
-}
-
-h1{
-    font-size:38px;
-    margin-bottom:18px;
-}
-
-h2{
-    font-size:27px;
-    margin-bottom:18px;
-}
-
-p{
-    font-size:18px;
-    line-height:1.65;
-    margin-bottom:23px;
-    color:#eeeeee;
-}
-
-button{
-    border:1px solid rgba(255,255,255,.18);
-    padding:14px 24px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    background:rgba(255,255,255,.1);
-    color:white;
-    font-weight:bold;
-    margin:7px;
-    transition:.25s;
-}
-
-button:hover{
-    transform:scale(1.05);
-    background:rgba(255,255,255,.18);
-}
-
-.main-btn{
-    background:linear-gradient(135deg,#ff4f91,#9d5cff);
-    border:none;
-    box-shadow:0 8px 25px rgba(255,70,140,.25);
-}
-
-.option{
-    display:block;
-    width:100%;
-    text-align:left;
-}
-
-.option:hover{
-    border-color:#ff70a7;
-}
-
-.music{
-    position:fixed;
-    top:18px;
-    left:18px;
-    z-index:20;
-    width:48px;
-    height:48px;
-    padding:0;
-    border-radius:50%;
-    background:rgba(10,15,35,.8);
-}
-
-.cake{
-    font-size:85px;
-    animation:bounce 1.5s infinite;
-}
-
-@keyframes bounce{
-    50%{transform:translateY(-10px)}
-}
-
-/* FLOATING HEARTS */
-.heart{
-    position:fixed;
-    bottom:-40px;
-    font-size:22px;
-    pointer-events:none;
-    z-index:50;
-    animation:heartFloat 5s linear forwards;
-}
-
-@keyframes heartFloat{
-    0%{
-        transform:translateY(0) scale(.7);
-        opacity:0;
-    }
-    15%{opacity:1}
-    100%{
-        transform:translateY(-110vh) scale(1.5) rotate(25deg);
-        opacity:0;
-    }
-}
-
-.final{
-    background:rgba(255,255,255,.045);
-    border-radius:20px;
-    padding:20px;
-    margin-top:15px;
-}
-
-.small{
-    font-size:13px;
-    opacity:.65;
-}
-
-.signature{
-    margin-top:25px;
-    font-size:20px;
-    color:#ffb1ce;
-}
-</style>
-</head>
-
-<body>
-
-<!-- NIGHT SKY -->
-<div class="sky" id="sky">
-    <div class="moon"></div>
-    <div class="hills"></div>
-</div>
-
-<!-- MUSIC BUTTON -->
-<button class="music" onclick="toggleMusic()" id="musicBtn">🎵</button>
-
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-
-<!-- SCREEN 1 -->
-<section class="screen active" id="screen1">
-<div class="card">
-
-    <div style="font-size:65px;">🌙</div>
-
-    <h1>Sadiya ❤️</h1>
-
-    <p>
-        Maine tumhare liye kuch banaya hai...
-        <br>
-        Thoda sa pagalpan,
-        thoda sa pyaar,
-        aur bahut saari feelings. 🥰
-    </p>
-
-    <button class="main-btn" onclick="nextScreen(2)">
-        Surprise kholo 🎁
-    </button>
-
-    <p class="small">
-        Ek chhoti si duniya... sirf tumhare liye ✨
-    </p>
-
-</div>
-</section>
-
-
-<!-- SCREEN 2 -->
-<section class="screen" id="screen2">
-<div class="card">
-
-    <div class="cake">🎂</div>
-
-    <h1>Happy Birthday</h1>
-
-    <h2>Sadiya ❤️</h2>
-
-    <p>
-        Aaj ka din mere liye bhi special hai,
-        kyunki aaj ke din meri favourite person
-        duniya mein aayi thi. 🥰
-    </p>
-
-    <button class="main-btn" onclick="nextScreen(3)">
-        Aage dekho ❤️
-    </button>
-
-</div>
-</section>
-
-
-<!-- QUESTION 1 -->
-<section class="screen" id="screen3">
-<div class="card">
-
-    <h2>Sawaal 1 ❤️</h2>
-
-    <p>
-        Agar hum abhi saath hote,
-        to sabse pehle kya karte?
-    </p>
-
-    <button class="option" onclick="nextScreen(4)">
-        A) Long walk par jaate 🌙
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        B) Saath mein kuch tasty khate 🍕
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        C) Bahut saari baatein karte 💬
-    </button>
-
-    <button class="option" onclick="nextScreen(4)">
-        D) Bas ek dusre ko dekhte rehte ❤️
-    </button>
-
-</div>
-</section>
-
-
-<!-- QUESTION 2 -->
-<section class="screen" id="screen4">
-<div class="card">
-
-    <h2>Sawaal 2 💕</h2>
-
-    <p>
-        Tumhare hisaab se pyaar ko
-        sabse zyada khaas kya banata hai?
-    </p>
-
-    <button class="option" onclick="nextScreen(5)">
-        A) Woh feeling jo dil ko sukoon de ❤️
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        B) Woh baatein jo hamesha yaad rahein ✨
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        C) Woh care jo sirf tumhari ho 🥰
-    </button>
-
-    <button class="option" onclick="nextScreen(5)">
-        D) Woh bharosa jo kabhi na toote 🔐
-    </button>
-
-</div>
-</section>
-
-
-<!-- QUESTION 3 -->
-<section class="screen" id="screen5">
-<div class="card">
-
-    <h2>Sawaal 3 😏</h2>
-
-    <p>
-        Agar main achanak tumhare saamne aa jaun,
-        to tumhara first reaction kya hoga?
-    </p>
-
-    <button class="option" onclick="nextScreen(6)">
-        A) Shock 😳
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        B) Seedha hug 🫂
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        C) Khushi se smile 😊
-    </button>
-
-    <button class="option" onclick="nextScreen(6)">
-        D) Pehle daantungi, phir hug 😂❤️
-    </button>
-
-</div>
-</section>
-
-
-<!-- QUESTION 4 -->
-<section class="screen" id="screen6">
-<div class="card">
-
-    <h2>Sawaal 4 🌙</h2>
-
-    <p>
-        Agar tumhe mere saath ek perfect evening
-        choose karni ho, to kya choose karogi?
-    </p>
-
-    <button class="option" onclick="nextScreen(7)">
-        A) Stars dekhte hue baatein ✨
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        B) Saath mein music sunna 🎵
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        C) Chup-chaap paas baithna ❤️
-    </button>
-
-    <button class="option" onclick="nextScreen(7)">
-        D) Thodi si pagalpan wali masti 😂
-    </button>
-
-</div>
-</section>
-
-
-<!-- FINAL QUESTION -->
-<section class="screen" id="screen7">
-<div class="card">
-
-    <div style="font-size:55px;">💖</div>
-
-    <h2>Last Sawaal...</h2>
-
-    <p>
-        Sadiya, kya tum mere saath
-        ek aur birthday celebrate karna chahogi? ❤️
-    </p>
-
-    <button class="main-btn" onclick="nextScreen(8)">
-        Haan ❤️
-    </button>
-
-    <button onclick="nextScreen(8)">
-        Bilkul ❤️
-    </button>
-
-</div>
-</section>
-
-
-<!-- FINAL -->
-<section class="screen" id="screen8">
-<div class="card">
-
-    <div style="font-size:70px;">🌙❤️</div>
-
-    <h1>Happy Birthday Sadiya 🎂</h1>
-
-    <div class="final">
-
-        <p>
-            Kaash aaj main tumhare paas hota...
-        </p>
-
-        <p>
-            Tumhare liye cake lata,
-            tumhe gift deta,
-            tumhare saath baithta
-            aur tumhari smile dekhta. ❤️
-        </p>
-
-        <p>
-            Aaj main tumhe koi physical gift nahi de paaya,
-            isliye ye chhoti si duniya tumhare liye bana di.
-        </p>
-
-        <p>
-            Shayad ye duniya chhoti hai,
-            lekin iske andar meri feelings
-            bilkul real hain. 🥰
-        </p>
-
-        <p>
-            Bas ek wish hai...
-            <br>
-            tum hamesha khush raho,
-            smile karti raho,
-            aur jo bhi tumhara dil chahe
-            woh tumhe mile. ✨
-        </p>
-
-        <p>
-            <strong>
-            Aur haan... agla birthday
-            sirf screen par nahi,
-            tumhare saamne celebrate karna hai. ❤️
-            </strong>
-        </p>
-
-    </div>
-
-    <div class="signature">
-        Happy Birthday, meri favourite person ❤️
-    </div>
-
-    <br>
-
-    <button class="main-btn" onclick="hearts()">
-        Ek aur surprise ❤️
-    </button>
-
-</div>
-</section>
-
-
-<script>
-
-/* CREATE STARS */
-const sky = document.getElementById("sky");
-
-for(let i = 0; i < 130; i++){
-
-    const star = document.createElement("div");
-
-    star.className = "star";
-
-    star.style.left = Math.random()*100 + "%";
-    star.style.top = Math.random()*75 + "%";
-
-    const size = Math.random()*2 + 1;
-
-    star.style.width = size + "px";
-    star.style.height = size + "px";
-
-    star.style.animationDelay =
-        Math.random()*4 + "s";
-
-    sky.appendChild(star);
-}
-
-
-/* SCREEN CHANGE */
-let currentScreen = 1;
-
-function nextScreen(number){
-
-    document.querySelectorAll(".screen").forEach(function(screen){
-        screen.classList.remove("active");
-    });
-
-    document.getElementById("screen" + number)
-        .classList.add("active");
-
-    currentScreen = number;
-
-    hearts();
-}
-
-
-/* HEART ANIMATION */
-function hearts(){
-
-    for(let i=0;i<18;i++){
-
-        const heart = document.createElement("div");
-
-        heart.className = "heart";
-
-        const emojis = [
-            "❤️","💕","💖","💗","💓","💘"
-        ];
-
-        heart.innerHTML =
-            emojis[Math.floor(Math.random()*emojis.length)];
-
-        heart.style.left =
-            Math.random()*100 + "vw";
-
-        heart.style.animationDuration =
-            (3 + Math.random()*3) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(function(){
-            heart.remove();
-        },6000);
-    }
-}
-
-
-/* MUSIC */
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
-
-function toggleMusic(){
-
-    if(music.paused){
-
-        music.play().then(function(){
-
-            musicBtn.innerHTML = "🔊";
-
-        }).catch(function(){
-
-            alert("Pehle music.mp3 file GitHub mein upload karo 🎵");
-
-        });
-
-    }else{
-
-        music.pause();
-
-        musicBtn.innerHTML = "🎵";
-    }
-}
-
-
-/* AUTOMATIC HEARTS ON FINAL SCREEN */
-setInterval(function(){
-
-    if(currentScreen === 8){
-        hearts();
-    }
-
-},3500);
-
-</script>
-
-</body>
-    </html>
-<!-- ULTIMATE SURPRISE -->
-<section class="screen" id="screen9">
-<div class="card">
-
-    <div style="font-size:65px;">🌙💖</div>
-
-    <h1>Sadiya...</h1>
-
-    <p>
-        Agar tum yahan tak aa gayi ho,
-        to ek baat aur kehni thi... ❤️
-    </p>
-
-    <p>
-        Tum meri life ka woh hissa ho
-        jise main kisi ek birthday,
-        kisi ek din ya kisi ek message
-        mein explain nahi kar sakta.
-    </p>
-
-    <p>
-        Bas itna samajh lena...
-        <br>
-        <strong>
-        tum mere liye bahut special ho. ❤️
-        </strong>
-    </p>
-
-    <div class="final">
-        <p>
-            🌙 Jab bhi raat mein moon dekho,
-            ek baar mujhe yaad kar lena...
-        </p>
-
-        <p>
-            Kyunki shayad usi waqt
-            main bhi wahi moon dekh raha hounga. ✨
-        </p>
-    </div>
-
-    <br>
-
-    <h2>
-        I love you, Sadiya ❤️
-    </h2>
-
-    <p class="small">
-        This little surprise was made only for you. 🌙
-    </p>
-
-    <button class="main-btn" onclick="hearts()">
-        ❤️
-    </button>
-
-</div>
-</section>
+    
