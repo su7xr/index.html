@@ -1500,3 +1500,272 @@ button:active{
             tumhare saath baithta
             aur tumhari smile dekhta. ❤️
       
+</p>
+
+<p>
+    Aaj main tumhe koi physical gift nahi de paaya,
+    isliye ye chhoti si duniya tumhare liye bana di.
+</p>
+
+<p>
+    Shayad ye duniya chhoti hai,
+    lekin iske andar meri feelings
+    bilkul real hain. 🥰
+</p>
+
+<p>
+    Bas ek wish hai...
+    <br>
+    tum hamesha khush raho,
+    smile karti raho,
+    aur jo bhi tumhara dil chahe
+    woh tumhe mile. ✨
+</p>
+
+<p>
+    <strong>
+        Aur haan...
+        <br>
+        agla birthday
+        sirf screen par nahi,
+        tumhare saamne celebrate karna hai. ❤️
+    </strong>
+</p>
+
+</div>
+
+<div class="signature">
+    Happy Birthday,
+    <br>
+    meri favourite person ❤️
+</div>
+
+<br>
+
+<button
+    type="button"
+    class="main-btn"
+    onclick="nextScreen(9)"
+>
+    Ek aur surprise ❤️
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCREEN 9 ================= -->
+
+<section
+    class="screen"
+    id="screen9"
+>
+
+<div class="card">
+
+    <div class="secret-heart">
+        💖
+    </div>
+
+    <h1>
+        Sadiya...
+    </h1>
+
+    <p>
+        Agar tum yahan tak aa gayi ho,
+        to ek baat aur kehni thi... ❤️
+    </p>
+
+    <p>
+        Tum meri life ka woh hissa ho
+        jise main kisi ek birthday,
+        kisi ek din ya kisi ek message
+        mein explain nahi kar sakta.
+    </p>
+
+    <p>
+        Bas itna samajh lena...
+        <br>
+        <strong>
+            tum mere liye bahut special ho. ❤️
+        </strong>
+    </p>
+
+    <div class="final">
+
+        <p>
+            🌙 Jab bhi raat mein moon dekho,
+            ek baar mujhe yaad kar lena...
+        </p>
+
+        <p>
+            Kyunki shayad usi waqt
+            main bhi wahi moon dekh raha hounga. ✨
+        </p>
+
+    </div>
+
+    <br>
+
+    <h2>
+        I love you, Sadiya ❤️
+    </h2>
+
+    <p class="small">
+        This little surprise was made only for you. 🌙
+    </p>
+
+    <button
+        type="button"
+        class="main-btn"
+        onclick="hearts()"
+    >
+        ❤️
+    </button>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* ================= PASSWORD ================= */
+
+function unlock(){
+
+    const password =
+        document.getElementById("password").value.trim();
+
+    if(password === "Sadiya15"){
+
+        document.getElementById("lockScreen").style.display = "none";
+
+        hearts();
+
+    }else{
+
+        document.getElementById("error").innerText =
+            "Password galat hai 😜❤️";
+
+    }
+}
+
+
+/* ================= SCREEN CHANGE ================= */
+
+let currentScreen = 1;
+
+function nextScreen(number){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(function(screen){
+            screen.classList.remove("active");
+        });
+
+    const next =
+        document.getElementById("screen" + number);
+
+    if(next){
+        next.classList.add("active");
+        currentScreen = number;
+        hearts();
+    }
+}
+
+
+/* ================= HEARTS ================= */
+
+function hearts(){
+
+    for(let i = 0; i < 18; i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className = "heart";
+
+        const emojis = [
+            "❤️",
+            "💕",
+            "💖",
+            "💗",
+            "💓",
+            "💘"
+        ];
+
+        heart.innerHTML =
+            emojis[
+                Math.floor(Math.random() * emojis.length)
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        }, 6000);
+    }
+}
+
+
+/* ================= MUSIC ================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play()
+        .then(function(){
+
+            musicBtn.innerHTML = "🔊";
+
+        })
+        .catch(function(){
+
+            alert(
+                "Pehle music.mp3 file GitHub mein upload karo 🎵"
+            );
+
+        });
+
+    }else{
+
+        music.pause();
+
+        musicBtn.innerHTML = "🎵";
+
+    }
+}
+
+
+/* ================= AUTO HEARTS ================= */
+
+setInterval(function(){
+
+    if(
+        currentScreen === 8 ||
+        currentScreen === 9
+    ){
+        hearts();
+    }
+
+}, 3500);
+
+</script>
+
+</body>
+</html>
