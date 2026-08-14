@@ -2,88 +2,205 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Sadiya ke liye ek special birthday surprise ❤️">
+
+<meta name="robots"
+      content="index, follow">
 
 <title>Sadiya ❤️</title>
-<meta name="description" content="Sadiya ke liye ek special birthday surprise ❤️">
-<meta name="robots" content="index, follow">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+
+/* =========================
+   BODY
+========================= */
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     min-height:100vh;
     overflow:hidden;
-    font-family:Arial,sans-serif;
+
+    font-family:
+        Arial,
+        sans-serif;
+
     color:white;
+
     background:
-        radial-gradient(circle at 50% 20%,#182442 0%,#0b1025 38%,#030615 75%,#010208 100%);
+        radial-gradient(
+            circle at 50% 20%,
+            #26365f 0%,
+            #111a36 32%,
+            #050817 68%,
+            #010208 100%
+        );
 }
 
-/* ================= LOCK SCREEN ================= */
+
+/* =========================
+   LOCK SCREEN
+========================= */
 
 #lockScreen{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     padding:25px;
 
     background:
-        radial-gradient(circle at 50% 18%,#182442 0%,#0b1025 38%,#030615 75%,#010208 100%);
+        radial-gradient(
+            circle at 50% 18%,
+            #26365f 0%,
+            #111a36 35%,
+            #050817 72%,
+            #010208 100%
+        );
 }
+
 
 .lockBox{
+
     width:100%;
+
     max-width:400px;
+
     padding:35px 25px;
+
     text-align:center;
+
     border-radius:28px;
 
-    background:rgba(5,8,22,.82);
+    background:
+        rgba(8,12,30,.84);
 
-    border:1px solid rgba(255,255,255,.15);
+    border:
+        1px solid
+        rgba(255,255,255,.15);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     box-shadow:
-        0 20px 70px rgba(0,0,0,.8),
-        0 0 50px rgba(120,150,255,.08);
+        0 20px 70px
+        rgba(0,0,0,.75),
+
+        inset 0 0 35px
+        rgba(255,255,255,.025);
+
+    animation:
+        boxAppear .8s ease;
 }
+
+
+@keyframes boxAppear{
+
+    from{
+        opacity:0;
+        transform:
+            scale(.9)
+            translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
 
 .lockIcon{
+
     font-size:65px;
+
     margin-bottom:15px;
+
+    animation:
+        lockFloat 2.5s ease-in-out infinite;
 }
+
+
+@keyframes lockFloat{
+
+    50%{
+        transform:
+            translateY(-8px)
+            rotate(-4deg);
+    }
+}
+
 
 .lockBox h1{
+
     font-size:30px;
+
     margin-bottom:15px;
 }
 
+
 .lockBox p{
+
     font-size:16px;
+
     line-height:1.5;
+
     margin-bottom:20px;
+
     color:#eeeeee;
 }
 
+
 .lockBox input{
+
     width:100%;
+
     padding:15px;
+
     margin:8px 0 12px;
 
     border-radius:25px;
 
-    border:1px solid rgba(255,255,255,.2);
+    border:
+        1px solid
+        rgba(255,255,255,.2);
 
-    background:rgba(255,255,255,.08);
+    background:
+        rgba(255,255,255,.08);
 
     color:white;
 
@@ -94,177 +211,322 @@ body{
     font-size:16px;
 }
 
+
+.lockBox input:focus{
+
+    border-color:#ff70ae;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,70,150,.25);
+}
+
+
 .lockBox input::placeholder{
+
     color:#aaa;
 }
 
+
 #error{
+
     color:#ff7da8;
+
     font-size:14px;
+
     min-height:20px;
+
     margin-top:10px;
+
+    margin-bottom:0 !important;
 }
 
 
-/* ================= NIGHT SKY ================= */
+/* =========================
+   SKY
+========================= */
 
 .sky{
+
     position:fixed;
+
     inset:0;
+
     overflow:hidden;
-    z-index:-2;
+
+    z-index:-5;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(40,60,110,.18),
+            transparent 45%
+        );
 }
 
-/* Moving stars */
+
+/* =========================
+   MOVING STARS
+========================= */
 
 .star{
+
     position:absolute;
 
     width:2px;
-    height:2px;
 
-    background:white;
+    height:2px;
 
     border-radius:50%;
 
+    background:white;
+
     box-shadow:
-        0 0 5px white,
-        0 0 12px rgba(180,210,255,.7);
+        0 0 5px
+        rgba(255,255,255,.9);
 
     animation:
-        starMove linear infinite,
-        twinkle ease-in-out infinite alternate;
+        starMove
+        var(--duration)
+        ease-in-out
+        infinite
+        alternate;
 }
+
 
 @keyframes starMove{
 
     0%{
-        transform:translate3d(0,0,0);
+
+        opacity:.2;
+
+        transform:
+            translate(0,0)
+            scale(.6);
     }
 
     50%{
-        transform:translate3d(18px,-12px,0);
+
+        opacity:1;
+
+        transform:
+            translate(
+                var(--moveX),
+                var(--moveY)
+            )
+            scale(1.4);
     }
 
     100%{
-        transform:translate3d(-10px,15px,0);
-    }
-}
 
-@keyframes twinkle{
+        opacity:.35;
 
-    from{
-        opacity:.25;
-        transform:scale(.65);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.5);
+        transform:
+            translate(
+                calc(var(--moveX) * -1),
+                calc(var(--moveY) * -1)
+            )
+            scale(.8);
     }
 }
 
 
-/* ================= REALISTIC DARK MOON ================= */
+/* =========================
+   MOON
+========================= */
 
 .moon{
+
     position:absolute;
 
-    width:155px;
-    height:155px;
+    width:145px;
+
+    height:145px;
 
     right:8%;
+
     top:8%;
 
     border-radius:50%;
 
     background:
+
         radial-gradient(
-            circle at 32% 27%,
+            circle at 35% 30%,
             #ffffff 0%,
-            #e8e9ec 30%,
-            #c5c7cc 65%,
-            #8c9099 100%
+            #f3f3f3 28%,
+            #dedede 55%,
+            #bdbdbd 78%,
+            #999999 100%
         );
 
     box-shadow:
-        0 0 25px rgba(255,255,255,.65),
-        0 0 60px rgba(160,180,255,.28),
-        0 0 120px rgba(100,130,255,.12);
 
-    overflow:hidden;
+        0 0 25px
+        rgba(255,255,255,.8),
+
+        0 0 65px
+        rgba(180,200,255,.35),
+
+        0 0 120px
+        rgba(130,160,255,.15);
+
+    animation:
+        moonMove
+        12s
+        ease-in-out
+        infinite
+        alternate;
 }
+
+
+@keyframes moonMove{
+
+    0%{
+
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50%{
+
+        transform:
+            translate(-25px,12px)
+            scale(1.025);
+    }
+
+    100%{
+
+        transform:
+            translate(15px,25px)
+            scale(1.04);
+    }
+}
+
 
 /* Moon craters */
 
 .moon::before{
+
     content:"";
 
     position:absolute;
 
-    width:30px;
-    height:23px;
+    width:28px;
+
+    height:20px;
 
     border-radius:50%;
 
-    background:rgba(80,80,85,.23);
+    left:28px;
 
-    left:27px;
-    top:42px;
+    top:38px;
+
+    background:
+        rgba(100,100,100,.22);
 
     box-shadow:
-        48px 30px 0 5px rgba(80,80,85,.16),
-        68px -18px 0 3px rgba(80,80,85,.20),
-        22px 75px 0 5px rgba(80,80,85,.15),
-        90px 62px 0 3px rgba(80,80,85,.13);
+
+        45px 35px 0 5px
+        rgba(100,100,100,.15),
+
+        65px -15px 0 2px
+        rgba(100,100,100,.18),
+
+        20px 70px 0 4px
+        rgba(100,100,100,.15),
+
+        75px 65px 0 3px
+        rgba(100,100,100,.12);
 }
 
-/* Dark shadow over moon */
 
 .moon::after{
+
     content:"";
 
     position:absolute;
 
-    width:155px;
-    height:155px;
+    width:55px;
+
+    height:55px;
 
     border-radius:50%;
 
-    left:30px;
-    top:-8px;
+    left:55px;
 
-    background:#050817;
+    top:18px;
 
-    opacity:.82;
+    background:
+        rgba(255,255,255,.15);
 }
 
 
-/* ================= MOVING BUTTERFLIES ================= */
+/* =========================
+   HILLS
+========================= */
+
+.hills{
+
+    position:absolute;
+
+    bottom:-100px;
+
+    left:-10%;
+
+    width:120%;
+
+    height:230px;
+
+    background:#02030a;
+
+    border-radius:
+        50% 50% 0 0;
+
+    box-shadow:
+        0 -20px 70px
+        rgba(0,0,0,.8);
+}
+
+
+/* =========================
+   BUTTERFLIES
+========================= */
 
 .butterfly{
-    position:fixed;
 
-    left:-80px;
+    position:absolute;
 
-    font-size:27px;
+    z-index:5;
 
-    z-index:4;
+    font-size:28px;
 
     pointer-events:none;
 
     filter:
-        drop-shadow(0 0 6px rgba(255,160,210,.55));
+        drop-shadow(
+            0 0 8px
+            rgba(255,150,220,.55)
+        );
 
     animation:
-        butterflyFly linear forwards;
+        butterflyFly
+        var(--flyTime)
+        linear
+        infinite;
 }
+
 
 @keyframes butterflyFly{
 
     0%{
+
         transform:
-            translate(-80px,0)
+            translate(
+                -15vw,
+                20vh
+            )
             rotate(8deg)
             scale(.75);
 
@@ -276,81 +538,91 @@ body{
     }
 
     25%{
+
         transform:
-            translate(25vw,-45px)
-            rotate(-12deg)
+            translate(
+                20vw,
+                5vh
+            )
+            rotate(-8deg)
             scale(1);
     }
 
     50%{
+
         transform:
-            translate(50vw,55px)
+            translate(
+                55vw,
+                28vh
+            )
             rotate(12deg)
-            scale(.95);
+            scale(.9);
     }
 
     75%{
+
         transform:
-            translate(75vw,-35px)
+            translate(
+                80vw,
+                8vh
+            )
             rotate(-10deg)
             scale(1.05);
     }
 
+    90%{
+        opacity:1;
+    }
+
     100%{
+
         transform:
-            translate(110vw,25px)
-            rotate(10deg)
-            scale(.8);
+            translate(
+                115vw,
+                30vh
+            )
+            rotate(8deg)
+            scale(.7);
 
         opacity:0;
     }
 }
 
 
-/* ================= HILLS ================= */
-
-.hills{
-    position:absolute;
-
-    bottom:-100px;
-    left:-10%;
-
-    width:120%;
-    height:230px;
-
-    background:#02030a;
-
-    border-radius:50% 50% 0 0;
-
-    box-shadow:
-        0 -20px 70px rgba(0,0,0,.7);
-}
-
-
-/* ================= SCREENS ================= */
+/* =========================
+   SCREENS
+========================= */
 
 .screen{
+
     min-height:100vh;
 
     display:none;
 
     justify-content:center;
+
     align-items:center;
 
     padding:25px;
 
     text-align:center;
-
-    position:relative;
-    z-index:2;
 }
 
+
 .screen.active{
+
     display:flex;
 }
 
+
+/* =========================
+   CARD
+========================= */
+
 .card{
+
     width:100%;
+
     max-width:520px;
 
     max-height:90vh;
@@ -361,28 +633,65 @@ body{
 
     border-radius:28px;
 
-    background:rgba(8,12,30,.72);
+    background:
+        rgba(8,12,30,.72);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
 
     box-shadow:
-        0 20px 70px rgba(0,0,0,.65),
-        inset 0 0 30px rgba(255,255,255,.025);
+
+        0 20px 70px
+        rgba(0,0,0,.65),
+
+        inset 0 0 30px
+        rgba(255,255,255,.025);
 }
+
+
+.card::-webkit-scrollbar{
+    width:4px;
+}
+
+
+.card::-webkit-scrollbar-thumb{
+
+    background:
+        rgba(255,255,255,.2);
+
+    border-radius:10px;
+}
+
+
+/* =========================
+   TEXT
+========================= */
 
 h1{
+
     font-size:38px;
+
     margin-bottom:18px;
 }
+
 
 h2{
+
     font-size:27px;
+
     margin-bottom:18px;
 }
 
+
 p{
+
     font-size:18px;
 
     line-height:1.65;
@@ -393,10 +702,15 @@ p{
 }
 
 
-/* ================= BUTTON ================= */
+/* =========================
+   BUTTONS
+========================= */
 
 button{
-    border:1px solid rgba(255,255,255,.18);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
 
     padding:14px 24px;
 
@@ -406,7 +720,8 @@ button{
 
     cursor:pointer;
 
-    background:rgba(255,255,255,.1);
+    background:
+        rgba(255,255,255,.1);
 
     color:white;
 
@@ -414,16 +729,31 @@ button{
 
     margin:7px;
 
-    transition:.25s;
+    transition:
+        transform .25s,
+        background .25s;
 }
+
 
 button:hover{
-    transform:scale(1.05);
 
-    background:rgba(255,255,255,.18);
+    transform:
+        scale(1.05);
+
+    background:
+        rgba(255,255,255,.18);
 }
 
+
+button:active{
+
+    transform:
+        scale(.96);
+}
+
+
 .main-btn{
+
     background:
         linear-gradient(
             135deg,
@@ -434,10 +764,13 @@ button:hover{
     border:none;
 
     box-shadow:
-        0 8px 25px rgba(255,70,140,.25);
+        0 8px 25px
+        rgba(255,70,140,.25);
 }
 
+
 .option{
+
     display:block;
 
     width:100%;
@@ -445,52 +778,71 @@ button:hover{
     text-align:left;
 }
 
+
 .option:hover{
-    border-color:#ff70a7;
+
+    border-color:
+        #ff70a7;
 }
 
 
-/* ================= MUSIC ================= */
+/* =========================
+   MUSIC
+========================= */
 
 .music{
+
     position:fixed;
 
     top:18px;
+
     left:18px;
 
-    z-index:20;
+    z-index:100;
 
     width:48px;
+
     height:48px;
 
     padding:0;
 
     border-radius:50%;
 
-    background:rgba(10,15,35,.8);
+    background:
+        rgba(10,15,35,.8);
 }
 
 
-/* ================= CAKE ================= */
+/* =========================
+   CAKE
+========================= */
 
 .cake{
+
     font-size:85px;
 
     animation:
-        bounce 1.5s infinite;
+        bounce
+        1.5s
+        infinite;
 }
+
 
 @keyframes bounce{
 
     50%{
-        transform:translateY(-10px);
+        transform:
+            translateY(-10px);
     }
 }
 
 
-/* ================= HEARTS ================= */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .heart{
+
     position:fixed;
 
     bottom:-40px;
@@ -502,12 +854,17 @@ button:hover{
     z-index:50;
 
     animation:
-        heartFloat 5s linear forwards;
+        heartFloat
+        5s
+        linear
+        forwards;
 }
+
 
 @keyframes heartFloat{
 
     0%{
+
         transform:
             translateY(0)
             scale(.7);
@@ -520,6 +877,7 @@ button:hover{
     }
 
     100%{
+
         transform:
             translateY(-110vh)
             scale(1.5)
@@ -530,10 +888,14 @@ button:hover{
 }
 
 
-/* ================= FINAL ================= */
+/* =========================
+   FINAL
+========================= */
 
 .final{
-    background:rgba(255,255,255,.045);
+
+    background:
+        rgba(255,255,255,.045);
 
     border-radius:20px;
 
@@ -542,13 +904,17 @@ button:hover{
     margin-top:15px;
 }
 
+
 .small{
+
     font-size:13px;
 
     opacity:.65;
 }
 
+
 .signature{
+
     margin-top:25px;
 
     font-size:20px;
@@ -556,12 +922,17 @@ button:hover{
     color:#ffb1ce;
 }
 
+
 .secret-heart{
+
     font-size:75px;
 
     animation:
-        secretBeat 1.3s infinite;
+        secretBeat
+        1.3s
+        infinite;
 }
+
 
 @keyframes secretBeat{
 
@@ -575,21 +946,21 @@ button:hover{
 }
 
 
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
     .moon{
-        width:115px;
-        height:115px;
 
-        right:5%;
-        top:6%;
-    }
+        width:105px;
 
-    .moon::after{
-        width:115px;
-        height:115px;
+        height:105px;
+
+        right:7%;
+
+        top:7%;
     }
 
     h1{
@@ -601,21 +972,28 @@ button:hover{
     }
 
     p{
-        font-size:16px;
+        font-size:17px;
     }
 
     .card{
-        padding:28px 20px;
+        padding:30px 20px;
+    }
+
+    .butterfly{
+        font-size:24px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- ================= LOCK SCREEN ================= -->
+<!-- =====================================================
+     LOCK SCREEN
+===================================================== -->
 
 <div id="lockScreen">
 
@@ -639,10 +1017,11 @@ button:hover{
             type="password"
             id="password"
             placeholder="Secret password..."
-            onkeydown="if(event.key==='Enter') unlock()"
+            autocomplete="off"
         >
 
         <button
+            type="button"
             class="main-btn"
             onclick="unlock()"
         >
@@ -656,7 +1035,9 @@ button:hover{
 </div>
 
 
-<!-- ================= NIGHT SKY ================= -->
+<!-- =====================================================
+     SKY
+===================================================== -->
 
 <div class="sky" id="sky">
 
@@ -667,9 +1048,46 @@ button:hover{
 </div>
 
 
-<!-- ================= MUSIC ================= -->
+<!-- =====================================================
+     BUTTERFLIES
+===================================================== -->
+
+<div class="butterfly"
+     style="
+        top:25%;
+        --flyTime:18s;
+        animation-delay:-5s;
+     ">
+    🦋
+</div>
+
+
+<div class="butterfly"
+     style="
+        top:55%;
+        --flyTime:22s;
+        animation-delay:-12s;
+     ">
+    🦋
+</div>
+
+
+<div class="butterfly"
+     style="
+        top:70%;
+        --flyTime:25s;
+        animation-delay:-18s;
+     ">
+    🦋
+</div>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
 
 <button
+    type="button"
     class="music"
     onclick="toggleMusic()"
     id="musicBtn"
@@ -677,7 +1095,12 @@ button:hover{
     🎵
 </button>
 
-<audio id="music" loop>
+
+<audio
+    id="music"
+    loop
+    preload="none"
+>
 
     <source
         src="music.mp3"
@@ -687,7 +1110,9 @@ button:hover{
 </audio>
 
 
-<!-- ================= SCREEN 1 ================= -->
+<!-- =====================================================
+     SCREEN 1
+===================================================== -->
 
 <section
     class="screen active"
@@ -713,6 +1138,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="main-btn"
         onclick="nextScreen(2)"
     >
@@ -729,7 +1155,9 @@ button:hover{
 </section>
 
 
-<!-- ================= SCREEN 2 ================= -->
+<!-- =====================================================
+     SCREEN 2
+===================================================== -->
 
 <section
     class="screen"
@@ -757,6 +1185,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="main-btn"
         onclick="nextScreen(3)"
     >
@@ -768,7 +1197,9 @@ button:hover{
 </section>
 
 
-<!-- ================= QUESTION 1 ================= -->
+<!-- =====================================================
+     QUESTION 1
+===================================================== -->
 
 <section
     class="screen"
@@ -787,6 +1218,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(4)"
     >
@@ -794,6 +1226,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(4)"
     >
@@ -801,6 +1234,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(4)"
     >
@@ -808,6 +1242,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(4)"
     >
@@ -819,7 +1254,9 @@ button:hover{
 </section>
 
 
-<!-- ================= QUESTION 2 ================= -->
+<!-- =====================================================
+     QUESTION 2
+===================================================== -->
 
 <section
     class="screen"
@@ -838,6 +1275,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(5)"
     >
@@ -845,6 +1283,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(5)"
     >
@@ -852,6 +1291,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(5)"
     >
@@ -859,6 +1299,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(5)"
     >
@@ -870,7 +1311,9 @@ button:hover{
 </section>
 
 
-<!-- ================= QUESTION 3 ================= -->
+<!-- =====================================================
+     QUESTION 3
+===================================================== -->
 
 <section
     class="screen"
@@ -889,6 +1332,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(6)"
     >
@@ -896,6 +1340,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(6)"
     >
@@ -903,6 +1348,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(6)"
     >
@@ -910,6 +1356,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(6)"
     >
@@ -921,7 +1368,9 @@ button:hover{
 </section>
 
 
-<!-- ================= QUESTION 4 ================= -->
+<!-- =====================================================
+     QUESTION 4
+===================================================== -->
 
 <section
     class="screen"
@@ -940,6 +1389,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(7)"
     >
@@ -947,6 +1397,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(7)"
     >
@@ -954,6 +1405,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(7)"
     >
@@ -961,6 +1413,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         class="option"
         onclick="nextScreen(7)"
     >
@@ -972,7 +1425,9 @@ button:hover{
 </section>
 
 
-<!-- ================= FINAL QUESTION ================= -->
+<!-- =====================================================
+     FINAL QUESTION
+===================================================== -->
 
 <section
     class="screen"
@@ -995,6 +1450,7 @@ button:hover{
     </p>
 
     <button
+        type="button"
         class="main-btn"
         onclick="nextScreen(8)"
     >
@@ -1002,6 +1458,7 @@ button:hover{
     </button>
 
     <button
+        type="button"
         onclick="nextScreen(8)"
     >
         Bilkul ❤️
@@ -1012,7 +1469,9 @@ button:hover{
 </section>
 
 
-<!-- ================= FINAL BIRTHDAY SCREEN ================= -->
+<!-- =====================================================
+     FINAL BIRTHDAY
+===================================================== -->
 
 <section
     class="screen"
@@ -1040,299 +1499,4 @@ button:hover{
             tumhe gift deta,
             tumhare saath baithta
             aur tumhari smile dekhta. ❤️
-        </p>
-
-        <p>
-            Aaj main tumhe koi physical gift nahi de paaya,
-            isliye ye chhoti si duniya tumhare liye bana di.
-        </p>
-
-        <p>
-            Shayad ye duniya chhoti hai,
-            lekin iske andar meri feelings
-            bilkul real hain. 🥰
-        </p>
-
-        <p>
-            Bas ek wish hai...
-            <br>
-            tum hamesha khush raho,
-            smile karti raho,
-            aur jo bhi tumhara dil chahe
-            woh tumhe mile. ✨
-        </p>
-
-        <p>
-            <strong>
-                Aur haan...
-                agla birthday
-                sirf screen par nahi,
-                tumhare saamne celebrate karna hai. ❤️
-            </strong>
-        </p>
-
-    </div>
-
-    <div class="signature">
-        Happy Birthday,
-        meri favourite person ❤️
-    </div>
-
-    <br>
-
-    <button
-        class="main-btn"
-        onclick="nextScreen(9)"
-    >
-        Ek aur surprise ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<!-- ================= SCREEN 9 ================= -->
-
-<section
-    class="screen"
-    id="screen9"
->
-
-<div class="card">
-
-    <div class="secret-heart">
-        💖
-    </div>
-
-    <h1>
-        Sadiya...
-    </h1>
-
-    <p>
-        Agar tum yahan tak aa gayi ho,
-        to ek baat aur kehni thi... ❤️
-    </p>
-
-    <p>
-        Tum meri life ka woh hissa ho
-        jise main kisi ek birthday,
-        kisi ek din ya kisi ek message
-        mein explain nahi kar sakta.
-    </p>
-
-    <p>
-        Bas itna samajh lena...
-        <br>
-        <strong>
-            tum mere liye bahut special ho. ❤️
-        </strong>
-    </p>
-
-    <div class="final">
-
-        <p>
-            🌙 Jab bhi raat mein moon dekho,
-            ek baar mujhe yaad kar lena...
-        </p>
-
-        <p>
-            Kyunki shayad usi waqt
-            main bhi wahi moon dekh raha hounga. ✨
-        </p>
-
-    </div>
-
-    <br>
-
-    <h2>
-        I love you, Sadiya ❤️
-    </h2>
-
-    <p class="small">
-        This little surprise was made only for you. 🌙
-    </p>
-
-    <button
-        class="main-btn"
-        onclick="hearts()"
-    >
-        ❤️
-    </button>
-
-</div>
-
-</section>
-
-
-<script>
-
-/* ================= PASSWORD ================= */
-
-function unlock(){
-
-    const password =
-        document.getElementById("password").value.trim();
-
-    if(password === "Sadiya15"){
-
-        document.getElementById("lockScreen").style.display = "none";
-
-        hearts();
-
-        /* Music browser automatically start nahi karne deta,
-           isliye user music button se start kar sakta hai. */
-
-    }else{
-
-        document.getElementById("error").innerText =
-            "Password galat hai 😜❤️";
-
-        document.getElementById("password").value = "";
-
-        document.getElementById("password").focus();
-
-    }
-}
-
-
-/* ================= STARS ================= */
-
-const sky =
-    document.getElementById("sky");
-
-for(let i=0;i<150;i++){
-
-    const star =
-        document.createElement("div");
-
-    star.className = "star";
-
-    star.style.left =
-        Math.random()*100 + "%";
-
-    star.style.top =
-        Math.random()*78 + "%";
-
-    const size =
-        Math.random()*2.2 + 1;
-
-    star.style.width =
-        size + "px";
-
-    star.style.height =
-        size + "px";
-
-    star.style.animationDuration =
-        (5 + Math.random()*8) + "s, " +
-        (2 + Math.random()*3) + "s";
-
-    star.style.animationDelay =
-        (-Math.random()*8) + "s, " +
-        (-Math.random()*3) + "s";
-
-    sky.appendChild(star);
-}
-
-
-/* ================= BUTTERFLIES ================= */
-
-const butterflyIcons = [
-    "🦋",
-    "🦋",
-    "🦋"
-];
-
-function createButterfly(){
-
-    const butterfly =
-        document.createElement("div");
-
-    butterfly.className =
-        "butterfly";
-
-    butterfly.innerHTML =
-        butterflyIcons[
-            Math.floor(
-                Math.random()*butterflyIcons.length
-            )
-        ];
-
-    butterfly.style.top =
-        (15 + Math.random()*65) + "vh";
-
-    butterfly.style.fontSize =
-        (20 + Math.random()*15) + "px";
-
-    butterfly.style.animationDuration =
-        (10 + Math.random()*8) + "s";
-
-    document.body.appendChild(butterfly);
-
-    setTimeout(function(){
-
-        butterfly.remove();
-
-    },19000);
-}
-
-/* Pehli butterflies */
-
-for(let i=0;i<4;i++){
-
-    setTimeout(
-        createButterfly,
-        i*2200
-    );
-
-}
-
-/* Continuous butterflies */
-
-setInterval(
-    createButterfly,
-    6500
-);
-
-
-/* ================= SCREEN CHANGE ================= */
-
-let currentScreen = 1;
-
-function nextScreen(number){
-
-    document
-        .querySelectorAll(".screen")
-        .forEach(function(screen){
-
-            screen.classList.remove("active");
-
-        });
-
-    const next =
-        document.getElementById(
-            "screen"+number
-        );
-
-    if(next){
-
-        next.classList.add("active");
-
-        currentScreen =
-            number;
-
-        hearts();
-    }
-}
-
-
-/* ================= HEARTS ================= */
-
-function hearts(){
-
-    for(let i=0;i<18;i++){
-
-        const heart =
-            document.createElement("div");
-
-    
+      
